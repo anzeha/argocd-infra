@@ -1,0 +1,31 @@
+applications:
+    - name: floorball-fantasy
+      namespace: argocd
+      additionalAnnotations: 
+        argocd-image-updater.argoproj.io/image-list: users_ms=anzeha/ffantasy.users,game_domain_ms=anzeha/ffantasy.game_domain,game_logic_ms=anzeha/ffantasy.game_logic
+        argocd-image-updater.argoproj.io/users_ms.update-strategy: latest
+        argocd-image-updater.argoproj.io/game_domain_ms.update-strategy: latest
+        argocd-image-updater.argoproj.io/game_logic_ms.update-strategy: latest
+        argocd-image-updater.argoproj.io/git-branch: main
+        argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/repo-deploy-key
+        argocd-image-updater.argoproj.io/users_ms.force-update: "true"
+        argocd-image-updater.argoproj.io/game_domain_ms.force-update: "true"
+        argocd-image-updater.argoproj.io/game_logic_ms.force-update: "true"
+      destination:
+        namespace: floorball-fantasy
+        server: https://kubernetes.default.svc
+      project: default
+      source:
+        path: k8s
+        repoURL: https://github.com/anzeha/floorball-fantasy-deployment.git
+        targetRevision: main
+        directory:
+          recurse: false
+          jsonnet: {}
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+projects: []
+applicationsets: []
+extensions: []

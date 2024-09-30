@@ -1,0 +1,24 @@
+generate_projects:
+  terragrunt_parsing:
+    parallel: true
+    createProjectName: true
+    createWorkspace: true
+    defaultWorkflow: default
+workflows:
+  default:
+    env_vars:
+        state:
+          - name: TF_VAR_github_token
+            value_from: GITHUB_TOKEN
+          - name: TF_VAR_github_username
+            value: anzeha
+        commands:
+          - name: TF_VAR_github_token
+            value_from: GITHUB_TOKEN
+          - name: TF_VAR_github_username
+            value: anzeha
+    plan:
+      steps:
+        - hclfmt
+        - init
+        - plan
