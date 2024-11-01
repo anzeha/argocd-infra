@@ -48,16 +48,16 @@ variable "setup_argocd_ingress" {
 }
 
 variable "external_secrets_namespace" {
-  type = string
+  type    = string
   default = "external-secrets"
 }
 
 variable "external_secrets_gcp_sa_name" {
-  type = string
+  type    = string
   default = "external-secrets-sa"
 }
 
 variable "external_secrets_ks_sa_name" {
-  type = string
+  type    = string
   default = "external-secrets"
 }

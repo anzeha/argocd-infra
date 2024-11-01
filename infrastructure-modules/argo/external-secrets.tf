@@ -13,9 +13,9 @@ resource "google_service_account" "es-workload-identity-user-sa" {
 
 resource "google_project_iam_member" "cluster_service_account_members" {
   for_each = toset(compact(distinct(concat(local.roles))))
-  project = var.project_id
-  role    = each.value
-  member  = "serviceAccount:${google_service_account.es-workload-identity-user-sa.email}"
+  project  = var.project_id
+  role     = each.value
+  member   = "serviceAccount:${google_service_account.es-workload-identity-user-sa.email}"
 }
 
 # Add workload identity to bind gcp service account to k8s service account
@@ -28,15 +28,15 @@ resource "google_project_iam_member" "workload-identity-role" {
 
 
 resource "helm_release" "external_secrets_operator" {
-    depends_on = [ helm_release.argocd ]
+  depends_on       = [helm_release.argocd]
   name             = "external-secrets"
   repository       = "https://charts.external-secrets.io"
   chart            = "external-secrets"
   create_namespace = true
   namespace        = var.external_secrets_namespace
 
-  set{
-    name = "serviceAccount.name"
+  set {
+    name  = "serviceAccount.name"
     value = var.external_secrets_ks_sa_name
   }
 
@@ -44,11 +44,10 @@ resource "helm_release" "external_secrets_operator" {
     name  = "serviceAccount.annotations.iam\\.gke\\.io/gcp-service-account"
     value = "${var.external_secrets_gcp_sa_name}@${var.project_id}.iam.gserviceaccount.com"
   }
-  
+
 }
 
 resource "kubernetes_manifest" "gcp_secrets" {
-  depends_on = [ helm_release.external_secrets_operator ]
   manifest = {
     apiVersion = "external-secrets.io/v1beta1"
     kind       = "ClusterSecretStore"

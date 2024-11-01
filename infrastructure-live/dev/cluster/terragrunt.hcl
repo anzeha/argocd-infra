@@ -1,5 +1,5 @@
 terraform {
-  source = "../../../infrastructure-modules/cluster"
+  source = "git::https://github.com/anzeha/infra-modules.git//cluster?ref=v0.0.3"
 }
 
 include "root" {

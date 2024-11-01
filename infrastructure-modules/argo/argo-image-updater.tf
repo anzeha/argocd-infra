@@ -1,6 +1,6 @@
 resource "kubernetes_secret_v1" "git_creds" {
   count      = var.argo_image_updater ? 1 : 0
-  depends_on = [ helm_release.argocd ]
+  depends_on = [helm_release.argocd]
   metadata {
     name      = "repo-deploy-key"
     namespace = var.argocd_namespace
@@ -14,7 +14,7 @@ resource "kubernetes_secret_v1" "git_creds" {
 }
 
 resource "helm_release" "argo_image_updater" {
-  depends_on = [ helm_release.argocd ]
+  depends_on       = [helm_release.argocd]
   count            = var.argo_image_updater ? 1 : 0
   name             = "argocd-image-updater"
   repository       = "https://argoproj.github.io/argo-helm"

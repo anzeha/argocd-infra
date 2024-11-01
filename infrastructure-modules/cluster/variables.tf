@@ -2,7 +2,7 @@ variable "project_id" {
   type = string
 }
 variable "env" {
-  type = string
+  type        = string
   description = "Environment name"
   validation {
     condition     = var.env == "dev" || var.env == "prod" || var.env == "staging"
