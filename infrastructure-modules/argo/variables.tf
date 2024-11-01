@@ -1,6 +1,13 @@
+variable "project_id" {
+  type = string
+}
 variable "env" {
   type        = string
   description = "Environment name"
+  validation {
+    condition     = var.env == "dev" || var.env == "prod" || var.env == "staging"
+    error_message = "Environment variable has to be one of 'env', 'staging' or prod"
+  }
 }
 variable "argocd_namespace" {
   type    = string
@@ -39,15 +46,18 @@ variable "setup_argocd_ingress" {
   type    = bool
   default = true
 }
-variable "argo_image_updater_values" {
-  type    = string
-  default = ""
+
+variable "external_secrets_namespace" {
+  type = string
+  default = "external-secrets"
 }
-variable "argo_apps_values" {
-  type    = string
-  default = ""
+
+variable "external_secrets_gcp_sa_name" {
+  type = string
+  default = "external-secrets-sa"
 }
-variable "deploy_app" {
-  type    = bool
-  default = true
+
+variable "external_secrets_ks_sa_name" {
+  type = string
+  default = "external-secrets"
 }

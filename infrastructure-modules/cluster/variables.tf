@@ -3,6 +3,11 @@ variable "project_id" {
 }
 variable "env" {
   type = string
+  description = "Environment name"
+  validation {
+    condition     = var.env == "dev" || var.env == "prod" || var.env == "staging"
+    error_message = "Environment variable has to be one of 'env', 'staging' or prod"
+  }
 }
 
 variable "resource_prefix" {
@@ -24,7 +29,10 @@ variable "machine_type" {
 variable "machine_disk_size" {
   type    = number
   default = 30
-
+  validation {
+    condition     = var.machine_disk_size > 0
+    error_message = "Machine disk size has to be larger than zero"
+  }
 }
 variable "zones" {
   type    = list(string)
@@ -48,5 +56,9 @@ variable "network" {
 }
 
 variable "subnetwork" {
+  type = string
+}
+
+variable "argocd_project_id" {
   type = string
 }

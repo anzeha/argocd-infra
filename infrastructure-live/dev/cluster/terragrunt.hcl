@@ -28,6 +28,7 @@ inputs = {
   subnetwork = dependency.vpc.outputs.vpc_subnetwork_name
 
   machine_type = "e2-medium"
+  argocd_project_id = include.root.locals.project_id
 
 
 }
