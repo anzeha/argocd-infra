@@ -7,7 +7,7 @@ remote_state {
   }
 
   config = {
-    prefix = "${path_relative_to_include()}/terraform.tfstate"
+    prefix   = "${path_relative_to_include()}/terraform.tfstate"
     bucket   = local.bucket_name
     project  = local.project_id
     location = local.region
@@ -15,20 +15,20 @@ remote_state {
 
 }
 
-locals{
+locals {
   config_vars = read_terragrunt_config("${get_parent_terragrunt_dir()}/config.hcl")
-  
-  secret_vars = { github_token   = get_env("TF_VAR_github_token")}
+
+  secret_vars = { github_token = get_env("TF_VAR_github_token") }
 
   # Extract the variables we need for easy access
-  region = local.config_vars.locals.region
-  project_id   = local.config_vars.locals.project_id
+  region      = local.config_vars.locals.region
+  project_id  = local.config_vars.locals.project_id
   bucket_name = local.config_vars.locals.bucket_name
 }
 
 
 generate "provider" {
-  path = "provider.tf"
+  path      = "provider.tf"
   if_exists = "overwrite_terragrunt"
 
   contents = <<EOF

@@ -8,14 +8,14 @@ include "root" {
 }
 
 include "env" {
-    path           = find_in_parent_folders("env.hcl")
-    expose         = true
-    merge_strategy = "no_merge"
+  path           = find_in_parent_folders("env.hcl")
+  expose         = true
+  merge_strategy = "no_merge"
 }
 
 locals {
-  env            = include.env.locals.env
-  project_id     = include.root.locals.project_id
+  env        = include.env.locals.env
+  project_id = include.root.locals.project_id
 
   resource_prefix = include.root.locals.config_vars.locals.resource_prefix
 
