@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/anzeha/infra-modules.git//argo?ref=v0.0.4"
+  source = "git::https://github.com/anzeha/infra-modules.git//argo?ref=v0.0.5"
 }
 
 include "root" {
@@ -20,6 +20,8 @@ inputs = {
 
   github_username = "anzeha"
   github_token    = include.root.locals.secret_vars.github_token
+
+  argo_apps_values          = "${file("./values/argo-apps.values.yml")}"
 
   argo_apps          = true
   argo_image_updater = true

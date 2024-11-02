@@ -2,12 +2,14 @@ applications:
     - name: root-app
       namespace: argocd
       destination:
-        namespace: floorball-fantasy
+        namespace: default
         server: https://kubernetes.default.svc
+      finalizers:
+       - resources-finalizer.argocd.argoproj.io
       project: default
       source:
-        path: k8s
-        repoURL: https://github.com/anzeha/floorball-fantasy-deployment.git
+        path: k8s/root-app
+        repoURL: https://github.com/anzeha/argocd-infra.git
         targetRevision: main
         directory:
           recurse: false
@@ -19,12 +21,14 @@ applications:
     - name: argocd
       namespace: argocd
       destination:
-        namespace: floorball-fantasy
+        namespace: default
         server: https://kubernetes.default.svc
+      finalizers:
+       - resources-finalizer.argocd.argoproj.io
       project: default
       source:
-        path: k8s
-        repoURL: https://github.com/anzeha/floorball-fantasy-deployment.git
+        path: k8s/argo-cd
+        repoURL: https://github.com/anzeha/argocd-infra.git
         targetRevision: main
         directory:
           recurse: false
