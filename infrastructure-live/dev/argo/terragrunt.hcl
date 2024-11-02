@@ -21,7 +21,7 @@ inputs = {
   github_username = "anzeha"
   github_token    = include.root.locals.secret_vars.github_token
 
-  argo_apps_values          = "${file("./values/argo-apps.values.yml")}"
+  argo_apps_values = "${file("./values/argo-apps.values.yml")}"
 
   argo_apps          = true
   argo_image_updater = true
