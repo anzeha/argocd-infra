@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/anzeha/infra-modules.git//cluster?ref=v0.0.3"
+  source = "git::https://github.com/anzeha/infra-modules.git//cluster?ref=v0.0.4"
 }
 
 include "root" {
@@ -14,7 +14,8 @@ include "env" {
 }
 
 locals {
-  env = include.env.locals.env
+  env          = include.env.locals.env
+  machine_type = include.env.locals.machine_type
 }
 
 
@@ -27,7 +28,7 @@ inputs = {
   network    = dependency.vpc.outputs.vpc_network_name
   subnetwork = dependency.vpc.outputs.vpc_subnetwork_name
 
-  machine_type      = "e2-medium"
+  machine_type      = local.machine_type
   argocd_project_id = include.root.locals.project_id
 
 
