@@ -1,23 +1,4 @@
 applications:
-    - name: root-app
-      namespace: argocd
-      destination:
-        namespace: default
-        server: https://kubernetes.default.svc
-      finalizers:
-       - resources-finalizer.argocd.argoproj.io
-      project: default
-      source:
-        path: k8s/root-app
-        repoURL: https://github.com/anzeha/argocd-infra.git
-        targetRevision: main
-        directory:
-          recurse: false
-          jsonnet: {}
-      syncPolicy:
-        automated:
-          selfHeal: true
-          prune: true
     - name: argocd
       namespace: argocd
       destination:
