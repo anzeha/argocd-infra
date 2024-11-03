@@ -12,7 +12,7 @@ spec:
     path: k8s
     targetRevision: HEAD
   destination:
-    server: ffantasy-gke-cluster-staging
+    server: https://34.90.150.183
     namespace: floorball-fantasy
   syncPolicy:
     automated:
