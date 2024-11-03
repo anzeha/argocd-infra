@@ -1,5 +1,0 @@
-# kustomize/overlays/dev/name-patch.yaml
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: floorball-fantasy-dev

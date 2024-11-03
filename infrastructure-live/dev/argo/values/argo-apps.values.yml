@@ -1,5 +1,5 @@
 applications:
-    - name: argocd
+    - name: app-of-apps
       namespace: argocd
       destination:
         namespace: default
@@ -8,7 +8,7 @@ applications:
        - resources-finalizer.argocd.argoproj.io
       project: default
       source:
-        path: k8s/argo-cd
+        path: k8s/app-of-apps
         repoURL: https://github.com/anzeha/argocd-infra.git
         targetRevision: main
         directory:
