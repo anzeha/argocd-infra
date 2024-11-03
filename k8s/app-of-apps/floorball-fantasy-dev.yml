@@ -1,6 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  namespace: argocd
   name: floorball-fantasy-dev
   finalizers:
   - resources-finalizer.argocd.argoproj.io
