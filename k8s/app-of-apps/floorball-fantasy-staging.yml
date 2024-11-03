@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  namespace: argocd
+  name: floorball-fantasy-staging
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/anzeha/floorball-fantasy-deployment.git
+    path: k8s
+    targetRevision: HEAD
+  destination:
+    server: ffantasy-gke-cluster-staging
+    namespace: floorball-fantasy
+  syncPolicy:
+    automated:
+      selfHeal: true

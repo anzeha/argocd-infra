@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
   - argo-cd.yml
   - floorball-fantasy-dev.yml
+  - floorball-fantasy-staging.yml
   
