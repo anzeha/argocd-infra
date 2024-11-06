@@ -1,4 +1,4 @@
 locals {
   env          = "dev"
-  machine_type = "e2-small"
+  machine_type = "e2-medium"
 }
