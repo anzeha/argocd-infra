@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
   - cluster-secret-store.yml
   - external-secret-staging.yml
+  - argocd-application-controller-sa.yml
+  - argocd-server-sa.yml
