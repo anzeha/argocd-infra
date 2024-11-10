@@ -1,5 +1,5 @@
 terraform {
-  source = "/home/anze/projects/terraform/infra-modules/argo"
+  source = "git::https://github.com/anzeha/infra-modules.git//kubernetes-addons?ref=v0.0.6"
 }
 
 include "root" {
