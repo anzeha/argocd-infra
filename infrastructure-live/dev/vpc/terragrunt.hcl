@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/anzeha/infra-modules.git//vpc?ref=v0.0.6"
+  source = "git::https://github.com/anzeha/infra-modules.git//vpc?ref=v0.0.10"
 }
 
 include "root" {

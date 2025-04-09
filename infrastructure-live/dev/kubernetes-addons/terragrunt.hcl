@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/anzeha/infra-modules.git//kubernetes-addons?ref=v0.0.6"
+  source = "git::https://github.com/anzeha/infra-modules.git//kubernetes-addons?ref=v0.0.10"
 }
 
 include "root" {
@@ -61,13 +61,13 @@ EOF
 }
 
 locals {
-  env = include.env.locals.env
+  env  = include.env.locals.env
+  test = "cicd-gke-cluster-dev"
 }
 
 
 inputs = {
-  env        = local.env
-  project_id = include.root.locals.project_id
-
+  env          = local.env
+  project_id   = include.root.locals.project_id
   cluster_name = dependency.cluster.outputs.cluster_name
 }
