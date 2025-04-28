@@ -28,7 +28,7 @@ spec:
       valueFiles:
         - ./environments/values-dev.yml
   destination:  
-    server: 'https://kubernetes.default.svc'  
+    server: 'https://34.13.204.109'  
     namespace: floorball-fantasy
   syncPolicy:  
     automated:  
