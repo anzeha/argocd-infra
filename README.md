@@ -3,6 +3,10 @@
 ## Add clusters
 
 ```
+gcloud config set account anzeha@floorball-fantasy.iam.gserviceaccount.com
+
+gcloud config set project floorball-fantasy
+
 
 gcloud container clusters get-credentials my-cluster --region europe-west1
 

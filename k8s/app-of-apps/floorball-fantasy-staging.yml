@@ -13,21 +13,6 @@ metadata:
     argocd-image-updater.argoproj.io/users_ms.force-update: "true"
     argocd-image-updater.argoproj.io/game_domain_ms.force-update: "true"
     argocd-image-updater.argoproj.io/game_logic_ms.force-update: "true"
-
-    argocd-image-updater.argoproj.io/users_ms.helm.image-name: users.image
-    argocd-image-updater.argoproj.io/users_ms.helm.image-tag: users.tag
-
-    argocd-image-updater.argoproj.io/squads_ms.helm.image-name: squads.image
-    argocd-image-updater.argoproj.io/squads_ms.helm.image-tag: squads.tag
-
-    argocd-image-updater.argoproj.io/web_ms.helm.image-name: frontend.image
-    argocd-image-updater.argoproj.io/web_ms.helm.image-tag: frontend.tag
-
-    argocd-image-updater.argoproj.io/gw_processor_ms.helm.image-name: gameweek-processor.image
-    argocd-image-updater.argoproj.io/gw_processor_ms.helm.image-tag: gameweek-processor.tag
-
-    argocd-image-updater.argoproj.io/domain_ms.helm.image-name: game-domain.image
-    argocd-image-updater.argoproj.io/domain_ms.helm.image-tag: game-domain.tag
   namespace: argocd
   name: floorball-fantasy-dev
   finalizers:
@@ -41,9 +26,9 @@ spec:
     helm:
       releaseName: ffantasy
       valueFiles:
-        - ./environments/values-dev.yml
+        - ./environments/values-staging.yml
   destination:  
-    server: 'https://34.32.176.207'  
+    server: 'https://34.13.204.109'  
     namespace: floorball-fantasy
   syncPolicy:  
     automated:  
