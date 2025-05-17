@@ -3,12 +3,23 @@ kind: Application
 metadata:
   annotations:
     argocd-image-updater.argoproj.io/image-list: users_ms=anzeha/ffantasy.users,squads_ms=anzeha/ffantasy.squads,web_ms=anzeha/ffantasy.web,gw_processor_ms=anzeha/ffantasy.gameweek-processor,domain_ms=anzeha/ffantasy.domain
+    
     argocd-image-updater.argoproj.io/users_ms.update-strategy: latest
+    argocd-image-updater.argoproj.io/users_ms.tag-match: "^staging.*"
+
     argocd-image-updater.argoproj.io/squads_ms.update-strategy: latest
+    argocd-image-updater.argoproj.io/squads_ms.tag-match: "^staging.*"
+
     argocd-image-updater.argoproj.io/web_ms.update-strategy: latest
+    argocd-image-updater.argoproj.io/web_ms.tag-match: "^staging.*"
+
     argocd-image-updater.argoproj.io/gw_processor_ms.update-strategy: latest
+    argocd-image-updater.argoproj.io/gw_processor_ms.tag-match: "^staging.*"
+
     argocd-image-updater.argoproj.io/domain_ms.update-strategy: latest
-    argocd-image-updater.argoproj.io/git-branch: main
+    
+    argocd-image-updater.argoproj.io/git-branch: staging
+
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/repo-deploy-key
     argocd-image-updater.argoproj.io/users_ms.force-update: "true"
     argocd-image-updater.argoproj.io/game_domain_ms.force-update: "true"
