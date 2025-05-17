@@ -6,19 +6,19 @@ metadata:
     
     
     argocd-image-updater.argoproj.io/users_ms.update-strategy: latest
-    argocd-image-updater.argoproj.io/users_ms.allow-tags: "^develop.*"
+    argocd-image-updater.argoproj.io/users_ms.allow-tags: regexp:^develop.*
     
     argocd-image-updater.argoproj.io/squads_ms.update-strategy: latest
-    argocd-image-updater.argoproj.io/squads_ms.allow-tags: "^develop.*"
+    argocd-image-updater.argoproj.io/squads_ms.allow-tags: regexp:^develop.*
 
     argocd-image-updater.argoproj.io/web_ms.update-strategy: latest
-    argocd-image-updater.argoproj.io/web_ms.allow-tags: "^develop.*"
+    argocd-image-updater.argoproj.io/web_ms.allow-tags: regexp:^develop.*
 
     argocd-image-updater.argoproj.io/gw_processor_ms.update-strategy: latest
-    argocd-image-updater.argoproj.io/gw_processor_ms.allow-tags: "^develop.*"
+    argocd-image-updater.argoproj.io/gw_processor_ms.allow-tags: regexp:^develop.*
 
     argocd-image-updater.argoproj.io/domain_ms.update-strategy: latest
-    argocd-image-updater.argoproj.io/domain_ms.allow-tags: "^develop.*"
+    argocd-image-updater.argoproj.io/domain_ms.allow-tags: regexp:^develop.*
 
     argocd-image-updater.argoproj.io/git-branch: develop
 
