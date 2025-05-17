@@ -6,22 +6,22 @@ metadata:
     
     
     argocd-image-updater.argoproj.io/users_ms.update-strategy: latest
-    argocd-image-updater.argoproj.io/users_ms.tag-match: "^develop.*"
+    argocd-image-updater.argoproj.io/users_ms.allow-tags: "^develop.*"
     
     argocd-image-updater.argoproj.io/squads_ms.update-strategy: latest
-    argocd-image-updater.argoproj.io/squads_ms.tag-match: "^develop.*"
+    argocd-image-updater.argoproj.io/squads_ms.allow-tags: "^develop.*"
 
     argocd-image-updater.argoproj.io/web_ms.update-strategy: latest
-    argocd-image-updater.argoproj.io/web_ms.tag-match: "^develop.*"
+    argocd-image-updater.argoproj.io/web_ms.allow-tags: "^develop.*"
 
     argocd-image-updater.argoproj.io/gw_processor_ms.update-strategy: latest
-    argocd-image-updater.argoproj.io/gw_processor_ms.tag-match: "^develop.*"
+    argocd-image-updater.argoproj.io/gw_processor_ms.allow-tags: "^develop.*"
 
     argocd-image-updater.argoproj.io/domain_ms.update-strategy: latest
-    argocd-image-updater.argoproj.io/domain_ms.tag-match: "^develop.*"
+    argocd-image-updater.argoproj.io/domain_ms.allow-tags: "^develop.*"
 
     argocd-image-updater.argoproj.io/git-branch: develop
-    
+
     argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/repo-deploy-key
     argocd-image-updater.argoproj.io/users_ms.force-update: "true"
     argocd-image-updater.argoproj.io/game_domain_ms.force-update: "true"
