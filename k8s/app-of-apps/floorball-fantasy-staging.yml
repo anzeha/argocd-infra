@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  annotation:
+  annotations:
     argocd-image-updater.argoproj.io/image-list: users_ms=anzeha/ffantasy.users,squads_ms=anzeha/ffantasy.squads,web_ms=anzeha/ffantasy.web,gw_processor_ms=anzeha/ffantasy.gameweek-processor,domain_ms=anzeha/ffantasy.domain
     argocd-image-updater.argoproj.io/users_ms.update-strategy: latest
     argocd-image-updater.argoproj.io/squads_ms.update-strategy: latest
