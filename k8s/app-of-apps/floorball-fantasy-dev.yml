@@ -56,7 +56,7 @@ spec:
       valueFiles:
         - ./environments/values-dev.yml
   destination:  
-    server: 'https://34.32.176.207'  
+    server: 'https://34.13.210.44'  
     namespace: floorball-fantasy
   syncPolicy:  
     automated:  
