@@ -49,7 +49,7 @@ spec:
   project: default  
   source:   
     repoURL: 'https://github.com/anzeha/floorball-fantasy-chart.git'  
-    targetRevision: HEAD  
+    targetRevision: develop  
     path: .
     helm:
       releaseName: ffantasy

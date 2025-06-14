@@ -29,10 +29,10 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:  
-  project: default  
+  project: default
   source:   
     repoURL: 'https://github.com/anzeha/floorball-fantasy-chart.git'  
-    targetRevision: HEAD  
+    targetRevision: staging  
     path: .
     helm:
       releaseName: ffantasy
