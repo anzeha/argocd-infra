@@ -39,7 +39,7 @@ spec:
       valueFiles:
         - ./environments/values-staging.yml
   destination:  
-    server: 'https://34.13.204.109'  
+    server: 'https://34.91.225.127'  
     namespace: floorball-fantasy
   syncPolicy:  
     automated:  
