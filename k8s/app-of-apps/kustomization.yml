@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   # - helm-test.yml
-  #- floorball-fantasy-dev.yml
+  - floorball-fantasy-dev.yml
   - floorball-fantasy-secrets.dev.yml
   #- floorball-fantasy-staging.yml
   
