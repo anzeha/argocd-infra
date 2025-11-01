@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/anzeha/infra-modules.git//argo?ref=v0.0.11"
+  source = "git::https://github.com/anzeha/infra-modules.git//argo?ref=v0.0.17"
 }
 
 include "root" {
